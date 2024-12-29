@@ -6,15 +6,15 @@ const PopularMenu = () => {
 
     const [menu, setMenu] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('/menu.json')
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data) 
-            const popularItems = data.filter(item => item.category === "popular")           
-            setMenu(popularItems)
-        })
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data) 
+                const popularItems = data.filter(item => item.category === "popular")
+                setMenu(popularItems)
+            })
+    }, [])
 
     return (
         <section className="mb-12">
@@ -24,7 +24,9 @@ const PopularMenu = () => {
                 {
                     menu.map(item => <MenuItem item={item} key={item._id}></MenuItem>)
                 }
+
             </div>
+            <button className="btn btn-outline border-0 border-b-4 mt-4">View Full Menu</button>
         </section>
     );
 };
