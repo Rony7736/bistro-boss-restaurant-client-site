@@ -1,13 +1,36 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
 
+    const { user, logout } = useContext(authContext)
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     const links =
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
             <NavLink to="/"><li>Home</li></NavLink>
             <NavLink to="/menu"><li>Menu</li></NavLink>
             <NavLink to="/order/salad"><li>Order Food</li></NavLink>
-            <NavLink to="/login"><li>Login</li></NavLink>
+            <NavLink to="/secret"><li>Secret</li></NavLink>
+
+            {
+                user ?
+                    <>
+                        <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
+                    </>
+                    :
+                    <>
+                        <NavLink to="/login"><li>Login</li></NavLink>
+                    </>
+            }
 
         </div>
 
