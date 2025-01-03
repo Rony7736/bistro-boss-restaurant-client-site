@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../../../Provider/AuthProvider";
+import { IoCartOutline } from "react-icons/io5";
 
 const Navbar = () => {
 
@@ -67,7 +68,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <Link to="/">
+                        <button className="btn">
+                            <IoCartOutline className="mr-2"></IoCartOutline>
+                            <div className="badge badge-secondary">+0</div>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </>

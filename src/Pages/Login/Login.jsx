@@ -99,12 +99,13 @@ const Login = () => {
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
-                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" required />
+                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
 
                             </div>
 
                             <div className="form-control mt-6">
-                                <input disabled={disabled} type="submit" className="btn btn-primary" value="Login" name="" id="" />
+                                {/* TODO : apply disabled for re captcha */}
+                                <input disabled={false} type="submit" className="btn btn-primary" value="Login" name="" id="" />
                             </div>
 
                         </form>
